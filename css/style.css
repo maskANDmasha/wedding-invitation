@@ -1,0 +1,491 @@
+/* ============================================================
+   Максим и Мария — приглашение на свадьбу
+   Стиль: ретро-дудл (крем / малиновый / оливковый)
+   ============================================================ */
+
+:root {
+  --cream:       #FAF3E1;
+  --cream-light: #FDF8EA;
+  --red:         #D64A5F;
+  --red-dark:    #C13B52;
+  --green:       #5E6C3F;
+  --green-light: #8A9B5C;
+  --pink-soft:   #E8A0AC;
+
+  --font-display: 'Yeseva One', 'Georgia', serif;
+  --font-script:  'Caveat', 'Segoe Script', cursive;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-script);
+  font-size: 1.35rem;
+  line-height: 1.45;
+  color: var(--green);
+  background-color: var(--cream);
+  background-image:
+    radial-gradient(620px 420px at 6% 10%,  rgba(214, 74, 95, .13), transparent 60%),
+    radial-gradient(520px 400px at 94% 28%, rgba(138, 155, 92, .16), transparent 60%),
+    radial-gradient(720px 520px at 50% 92%, rgba(214, 74, 95, .10), transparent 65%);
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+}
+
+.svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+html, body { overflow-x: clip; }
+
+.page {
+  max-width: min(92vw, 560px);
+  margin-inline: auto;
+  padding: 8px 16px 56px;
+  overflow-x: clip;
+}
+
+/* ============================== HERO ============================== */
+
+.hero { position: relative; text-align: center; padding-top: 16px; }
+
+.garland {
+  display: block;
+  width: min(100%, 430px);
+  height: auto;
+  margin: 0 auto;
+  color: var(--red);
+  overflow: visible;
+}
+.garland .string { stroke: var(--green); stroke-width: 2.5; }
+.garland .pend line { stroke: var(--green); stroke-width: 2; stroke-linecap: round; }
+.garland .pend {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: sway 3.4s ease-in-out infinite alternate;
+}
+.garland .pend:nth-of-type(2) { animation-delay: .5s; }
+.garland .pend:nth-of-type(3) { animation-delay: 1s; }
+.garland .pend:nth-of-type(4) { animation-delay: 1.5s; }
+
+.sparkle {
+  position: absolute;
+  color: var(--pink-soft);
+  animation: twinkle 2.4s ease-in-out infinite;
+}
+.sp-1 { top: 96px;  left: 3%;  width: 22px; height: 22px; }
+.sp-2 { top: 168px; right: 4%; width: 15px; height: 15px; animation-delay: 1.2s; }
+
+.names {
+  display: grid;
+  justify-items: center;
+  margin: 16px 0 10px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.4rem, 11vw, 3.6rem);
+  line-height: .95;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.names .amp {
+  font-family: var(--font-script);
+  font-size: .5em;
+  text-transform: lowercase;
+  letter-spacing: 0;
+  color: var(--green);
+  margin: 8px 0;
+  transform: rotate(-6deg);
+}
+
+.hero-date { display: grid; gap: 2px; margin: 0 0 28px; }
+.date-num {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 4.6vw, 1.5rem);
+  letter-spacing: .12em;
+}
+.date-week { font-size: 1.35rem; }
+
+.hero-heart-wrap {
+  position: relative;
+  max-width: 380px;
+  margin: 0 auto 40px;
+}
+.hero-heart { display: block; width: 100%; height: auto; }
+.heart-outline {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 3;
+  stroke-linejoin: round;
+}
+.deco-heart { color: var(--red); opacity: .9; }
+
+.ribbon {
+  position: absolute;
+  left: 50%;
+  bottom: -26px;
+  transform: translateX(-50%);
+  width: min(76%, 262px);
+  height: auto;
+  filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .07));
+}
+.ribbon-text {
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 20px;
+  fill: var(--cream);
+  text-anchor: middle;
+}
+
+.scroll-down { display: inline-block; animation: bounce 2.1s ease-in-out infinite; }
+.scroll-down svg { display: block; width: 40px; height: 26px; }
+.scroll-down .chev { stroke: var(--green); stroke-width: 3; stroke-linecap: round; }
+.scroll-down .c2 { opacity: .55; }
+
+/* ============================ СЕКЦИИ ============================== */
+
+.section { margin-top: 64px; text-align: center; }
+
+.script-heading {
+  margin: 0 0 14px;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: clamp(2rem, 8vw, 2.7rem);
+  line-height: 1.1;
+  color: var(--green);
+}
+.script-heading.red   { color: var(--red); }
+.script-heading.green { color: var(--green); }
+
+.section-title {
+  margin: 0 0 10px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 6.5vw, 2.2rem);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.section-sub { margin: 0 0 22px; }
+
+#greeting p { max-width: 42ch; margin: 0 auto 14px; }
+#greeting .lead { font-size: 1.5rem; }
+
+/* ---------- фигурная фестончатая рамка ---------- */
+
+.scallop-frame { position: relative; }
+.frame-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.frame-path {
+  fill: var(--cream-light);
+  stroke: var(--pink-soft);
+  stroke-width: 2.5;
+}
+.frame-content { position: relative; padding: 42px 30px; }
+
+.photo-frame { max-width: 340px; margin: 30px auto 0; }
+.photo-content {
+  aspect-ratio: 280 / 384;
+  padding: 38px 30px;
+}
+.photo-content img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* ---------- календарь ---------- */
+
+.calendar-frame { max-width: 380px; margin: 0 auto; }
+.calendar-content { padding: 40px 26px 30px; }
+
+.month {
+  margin: 0 0 14px;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px 0;
+  align-items: center;
+}
+.dow {
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: var(--green);
+}
+.dow.weekend { color: var(--red); }
+
+.day {
+  position: relative;
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-family: var(--font-display);
+  font-size: clamp(.8rem, 3.4vw, 1rem);
+  color: var(--green);
+}
+.day.weekend { color: var(--red); }
+.day.empty { visibility: hidden; }
+
+.day.event svg {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 80%;
+  height: 90%;
+  fill: var(--red);
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heart-pulse 1.8s ease-in-out infinite;
+}
+.day.event b {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 400;
+  color: var(--cream);
+}
+
+.calendar-note { margin: 16px 0 0; font-size: 1.3rem; }
+
+/* ---------- гирлянда огоньков ---------- */
+
+.lights {
+  display: block;
+  width: min(100%, 420px);
+  height: auto;
+  margin: 56px auto -8px;
+  overflow: visible;
+}
+.lights .string { stroke: var(--green); stroke-width: 2.5; }
+.lights .bulb line { stroke: var(--green); stroke-width: 2; stroke-linecap: round; }
+.lights .bulb circle { fill: var(--red); animation: twinkle 2.2s ease-in-out infinite; }
+.lights .bulb.alt circle { fill: var(--green-light); animation-delay: .7s; }
+.lights .bulb:nth-of-type(3) circle { animation-delay: 1.3s; }
+.lights .bulb:nth-of-type(5) circle { animation-delay: 1.7s; }
+
+/* ---------- локация ---------- */
+
+.location-heart-wrap {
+  position: relative;
+  max-width: 300px;
+  margin: 8px auto 18px;
+}
+.location-heart { display: block; width: 100%; height: auto; }
+.heart-on-red { color: var(--cream); opacity: .85; }
+.heart-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 2px;
+  padding: 0 38px 34px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: clamp(1.15rem, 4.8vw, 1.45rem);
+  line-height: 1.25;
+  text-align: center;
+  color: var(--cream);
+}
+
+.map-link {
+  display: inline-block;
+  font-family: var(--font-script);
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: var(--green);
+  text-decoration: none;
+  transition: color .25s ease, transform .25s ease;
+}
+.map-link:hover,
+.map-link:focus-visible { color: var(--red); transform: scale(1.05); }
+
+.dove {
+  display: block;
+  width: 84px;
+  height: 56px;
+  margin: 26px auto 0;
+  color: var(--green);
+  opacity: .9;
+}
+
+/* ---------- пожелания ---------- */
+
+.wish { position: relative; max-width: 340px; margin: 34px auto 0; }
+.wish-num {
+  position: absolute;
+  top: -16px;
+  left: -4px;
+  z-index: 2;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 1.9rem;
+  color: var(--red);
+  transform: rotate(-8deg);
+}
+.wish-2 .wish-num { left: auto; right: -4px; transform: rotate(6deg); }
+
+.blob { position: relative; color: var(--cream); }
+.blob p {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 5vw, 1.4rem);
+  line-height: 1.3;
+}
+
+.blob-1 {
+  background: var(--red);
+  border-radius: 46% 54% 52% 48% / 52% 46% 54% 48%;
+  padding: 46px 30px 38px;
+}
+.bow {
+  position: absolute;
+  top: -36px;
+  left: 50%;
+  z-index: 2;
+  width: 64px;
+  height: 44px;
+  transform: translateX(-50%) rotate(-4deg);
+  color: var(--green);
+}
+
+.blob-2 {
+  display: grid;
+  place-content: center;
+  min-height: 170px;
+  padding: 44px 36px;
+}
+.blob-flower {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- таймер ---------- */
+
+.timer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 24px;
+}
+.time-unit { display: grid; justify-items: center; gap: 8px; }
+.time-card {
+  display: grid;
+  place-items: center;
+  min-width: clamp(56px, 16vw, 76px);
+  padding: 14px 6px 10px;
+  border-radius: 14px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 7vw, 2.2rem);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--cream);
+  background: var(--red);
+}
+.time-label { font-size: 1.15rem; color: var(--green); }
+.colon {
+  padding-top: 14px;
+  font-family: var(--font-script);
+  font-weight: 700;
+  font-size: 1.8rem;
+  line-height: 1;
+  color: var(--green);
+}
+
+.smile-heart {
+  display: block;
+  width: 110px;
+  height: auto;
+  margin: 36px auto 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: heart-pulse 2.4s ease-in-out infinite;
+}
+
+/* ---------- футер ---------- */
+
+.footer { margin-top: 72px; text-align: center; }
+.footer .script-heading { margin-bottom: 2px; }
+.footer-names {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 6vw, 2rem);
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.footer-hearts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 18px;
+  color: var(--pink-soft);
+}
+.footer-hearts svg { width: 18px; height: 17px; }
+.footer-hearts .big { width: 26px; height: 24px; color: var(--red); }
+
+/* ============================ АНИМАЦИИ ============================ */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+
+@keyframes sway {
+  from { transform: rotate(-2.5deg); }
+  to   { transform: rotate(2.5deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: .35; transform: scale(.8); }
+  50%      { opacity: 1;   transform: scale(1.15); }
+}
+@keyframes heart-pulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.08); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+
+/* ============================ АДАПТИВ ============================= */
+
+@media (min-width: 700px) {
+  .page { max-width: 600px; padding-top: 24px; }
+  .section { margin-top: 84px; }
+  .sp-1 { left: 12%; }
+  .sp-2 { right: 12%; }
+}
+
+/* Уважение к настройкам доступности */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .garland .pend,
+  .sparkle,
+  .day.event svg,
+  .scroll-down,
+  .lights .bulb circle,
+  .smile-heart { animation: none; }
+}
